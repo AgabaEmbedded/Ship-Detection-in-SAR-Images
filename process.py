@@ -1,169 +1,120 @@
 import os
-#import cv2
 import shutil
 import random
-#import zipfile
 import rasterio
 import numpy as np
 import pandas as pd
 from rasterio.transform import rowcol
 from PIL import Image
 
-
-# Define directories
+# --- CONFIGURATION ---
 Data_dir = r"Input_Data"
 train_image_dir = r"Data/Image/train"
 train_label_dir = r"Data/labels/train"
 nopatch_image_dir = r"Data/Image/no_patch"
 nopatch_label_dir = r"Data/labels/no_patch"
-#zipfile_folder = r"/content/drive/MyDrive/Road Pattern"
 
-#working_dir = r"/content/working/"
+patch_size = 640
+stride = 420
+no_obj_keep_rate = 0.01  # Keep 1% of empty patches
 
 # Reset dataset folders
 shutil.rmtree("Data", ignore_errors=True)
-#shutil.rmtree("working", ignore_errors=True)
 os.makedirs(train_image_dir, exist_ok=True)
 os.makedirs(train_label_dir, exist_ok=True)
 os.makedirs(nopatch_image_dir, exist_ok=True)
 os.makedirs(nopatch_label_dir, exist_ok=True)
-#os.makedirs(working_dir, exist_ok=True)
 
-# Patch parameters
-patch_size = 640
-stride = 420
-patch_id = 0
+# --- PROCESSING ---
+csv_files = [p for p in os.listdir(Data_dir) if p.endswith(".csv")]
 
-# Process each TIFF image
-#print([x for x in os.listdir() if x.endswith(".tif")])
-for csv_path in [p for p in os.listdir(Data_dir) if p.endswith(".csv")]:
-    print(csv_path)
-    image_name = os.path.splitext(csv_path)[0]
-    image_path = os.path.join(Data_dir, csv_path.replace(".csv", ".tif"))
+for csv_name in csv_files:
+    print(f"--- Processing: {csv_name} ---")
+    image_name = os.path.splitext(csv_name)[0]
+    image_path = os.path.join(Data_dir, image_name + ".tif")
+    
+    if not os.path.exists(image_path):
+        print(f"Skipping {image_name}: TIFF file not found.")
+        continue
 
-    #print(f"copying {image_name}...")
-    #shutil.copy(os.path.join(zipfile_folder, image_name+".zip"), working_dir)
-
-
-    #print(f"extracting {image_name}...")
-    #with zipfile.ZipFile(os.path.join(working_dir, image_name+".zip"), "r") as zip_ref:
-    #    zip_ref.extractall(working_dir)
-
-    #for file_name in os.listdir(working_dir):
-    #    dir1 = os.path.join(working_dir, file_name)
-    #    if os.path.isdir(dir1):
-    #        print(f"fetchin {image_name} directory...")
-    #        image_path = os.path.join(dir1, image_filename_dict[image_name]+".tif")
-            #shutil.copy(os.path.join(image_filename_dict[image_name]+".tif", dir1), working)
-
-
-    print(f"loading {image_name} image...")
-    print(image_path)
     with rasterio.open(image_path) as src:
-        image = src.read()
+        # Read image metadata
         transform = src.transform
-        _, h, w = image.shape  # Image dimensions
+        channels = src.count  # 1 or 3
+        h, w = src.height, src.width
+        
+        # Load bounding box annotations (Expected in Degrees/EPSG:4326)
+        csv_file = pd.read_csv(os.path.join(Data_dir, csv_name))
 
-        # Convert resolution to proper format
-        x_res, y_res = src.res
-        if y_res > 0:
-            y_res = -y_res  # Ensure it's negative
-
-        print(f"Processing {image_name} with resolution ({x_res}, {y_res})")
-
-        print(f"loading {csv_path}...")
-        # Load bounding box annotations
-        csv_file = pd.read_csv(os.path.join(Data_dir, csv_path))
-
-        # Iterate through patches
+        patch_count = 0
         for i in range(0, h - patch_size + 1, stride):
             for j in range(0, w - patch_size + 1, stride):
-                patch = image[:, i:i+patch_size, j:j+patch_size].copy()
-
-                #im = Image.fromarray(np.moveaxis(((patch - patch.min()) / (patch.max() - patch.min()) * 255).astype(np.uint8), 0, -1))
+                
+                # 1. Read the patch window (faster than reading whole image)
+                window = rasterio.windows.Window(j, i, patch_size, patch_size)
+                patch_data = src.read(window=window) # Shape: (Channels, 640, 640)
+                
                 labels = []
 
-                # Convert object bounding box coordinates to pixel space
+                # 2. Process Annotations for this Patch
                 for _, row in csv_file.iterrows():
-                    # Convert world coordinates to pixel coordinates
-                    ymin, xmin = rowcol(transform, row["xmin"], row["ymin"])
-                    ymax, xmax = rowcol(transform, row["xmax"], row["ymax"])
+                    # Convert Degree Coordinates to Pixel Coordinates
+                    # rowcol returns (row, col) which is (y, x)
+                    py_min, px_min = rowcol(transform, row["xmin"], row["ymin"])
+                    py_max, px_max = rowcol(transform, row["xmax"], row["ymax"])
 
-                    # Ensure values are in correct order
-                    xmin, xmax = min(xmin, xmax), max(xmin, xmax)
-                    ymin, ymax = min(ymin, ymax), max(ymin, ymax)
+                    # Standardize order (top-left to bottom-right)
+                    xmin, xmax = min(px_min, px_max), max(px_min, px_max)
+                    ymin, ymax = min(py_min, py_max), max(py_min, py_max)
 
-                    # Check if the object is inside the patch
+                    # Check if box overlaps with the current patch window (j=x_offset, i=y_offset)
                     if not (xmin > j + patch_size or xmax < j or ymin > i + patch_size or ymax < i):
-                        index = row["id"]
-                        # Clip bounding box to fit within the patch
-                        xmin, xmax = max(xmin, j), min(xmax, j + patch_size)
-                        ymin, ymax = max(ymin, i), min(ymax, i + patch_size)
+                        
+                        # Clip coordinates to patch boundaries
+                        c_xmin = max(xmin, j)
+                        c_xmax = min(xmax, j + patch_size)
+                        c_ymin = max(ymin, i)
+                        c_ymax = min(ymax, i + patch_size)
 
-                        # Convert to YOLO format
-                        box_w = (xmax - xmin) / patch_size
-                        box_h = (ymax - ymin) / patch_size
-                        center_x = ((xmin + xmax) / 2 - j) / patch_size
-                        center_y = ((ymin + ymax) / 2 - i) / patch_size
+                        # Convert to Patch-Relative YOLO format (0.0 to 1.0)
+                        box_w = (c_xmax - c_xmin) / patch_size
+                        box_h = (c_ymax - c_ymin) / patch_size
+                        center_x = ((c_xmin + c_xmax) / 2 - j) / patch_size
+                        center_y = ((c_ymin + c_ymax) / 2 - i) / patch_size
 
-                        labels.append(f"0 {center_x:.6f} {center_y:.6f} {box_w:.6f} {box_h:.6f}\n")
+                        # Filter out tiny slivers (less than 10% of width/height surviving)
+                        if box_w > 0.001 and box_h > 0.001:
+                            labels.append(f"0 {center_x:.6f} {center_y:.6f} {box_w:.6f} {box_h:.6f}\n")
 
-                # Save the patch and labels
-                for b in range(patch.shape[0]):
-                    diff = patch[b].max() - patch[b].min()
-                    #patch[b] = (patch[b] - patch[b].min()) / (patch[b].max() - patch[b].min())*255
-                    if diff > 0:
-                        patch[b] = (patch[b] - patch[b].min()) / diff * 255
-                    else:
-                        patch[b] = 0
+                # 3. Handle Image Normalization & Saving
+                # Move channels to last dim for PIL: (H, W, C)
+                if channels == 1:
+                    patch_display = patch_data[0] # (640, 640)
+                else:
+                    patch_display = np.moveaxis(patch_data, 0, -1) # (640, 640, 3)
 
-                patch = patch.astype(np.uint8)
-                patch_to_save = patch.squeeze()
-                #print(patch.shape)
-                #patch = np.moveaxis(patch, 0, -1)
-                patch_image = Image.fromarray(patch[0])
+                # Normalize to 0-255 uint8
+                p_min, p_max = patch_display.min(), patch_display.max()
+                if p_max > p_min:
+                    patch_display = (patch_display - p_min) / (p_max - p_min) * 255
+                patch_display = patch_display.astype(np.uint8)
+
+                # Convert to PIL Image
+                final_img = Image.fromarray(patch_display)
+                save_name = f"patch_{image_name}_{i}_{j}"
 
                 if labels:
-                    patch_image.save(f"{train_image_dir}/patch_{image_name}_{int(index)}_{patch_id}.png")
-                    with open(f"{train_label_dir}/patch_{image_name}_{int(index)}_{patch_id}.txt", "w") as file:
-                        file.writelines(labels)
-
-                    # Augmentation: Rotate Left (90° Counterclockwise)
-                    #rotated_left = patch_image.rotate(90, expand=True)
-                    #rotated_left_labels = [f"{i} {y} {1 - float(x)} {h} {w}\n" for i, x, y, w, h in
-                    #                        [line.split() for line in labels]]
-
-                    #rotated_left.save(f"{train_image_dir}/image_{image_name}_{patch_id}_rl.png")
-                    #with open(f"{train_label_dir}/label_{image_name}_{patch_id}_rl.txt", "w") as file:
-                    #    file.writelines(rotated_left_labels)
-
-                    # Augmentation: Rotate Right (90° Clockwise)
-                    #rotated_right = patch_image.rotate(-90, expand=True)
-                    #rotated_right_labels = [f"{i} {1 - float(y)} {x} {h} {w}\n" for i, x, y, w, h in
-                    #                       [line.split() for line in labels]]
-                    #rotated_right.save(f"{train_image_dir}/image_{image_name}_{patch_id}_rr.png")
-                    #with open(f"{train_label_dir}/label_{image_name}_{patch_id}_rr.txt", "w") as file:
-                    #    file.writelines(rotated_right_labels)
-
-
-                    # Augmentation: Flip Up-Down
-                    #flipped_ud = patch_image.transpose(Image.FLIP_TOP_BOTTOM)
-                    #flipped_ud_labels = [f"{i} {x} {1 - float(y)} {w} {h}\n" for i, x, y, w, h in
-                    #                     [line.split() for line in labels]]
-                    #flipped_ud.save(f"{train_image_dir}/image_{image_name}_{patch_id}_flip.png")
-                    #with open(f"{train_label_dir}/label_{image_name}_{patch_id}_flip.txt", "w") as file:
-                    #    file.writelines(flipped_ud_labels)
+                    final_img.save(os.path.join(train_image_dir, f"{save_name}.png"))
+                    with open(os.path.join(train_label_dir, f"{save_name}.txt"), "w") as f:
+                        f.writelines(labels)
                 else:
-                    if random.random() < 0.01:  # Save only 10% of no-object patches to reduce dataset size
-                        patch_image.save(f"{nopatch_image_dir}/patch_{image_name}_{patch_id}.png")
-                        with open(f"{nopatch_label_dir}/patch_{image_name}_{patch_id}.txt", "w") as file:
-                            pass  # Empty label file for no-object patches
-                print(f"patch {patch_id} of image {image_name}")
-                patch_id += 1
-                #if len(os.listdir(r"/content/Data/Image/train")) == 50:
+                    # Save a small percentage of background patches
+                    if random.random() < no_obj_keep_rate:
+                        final_img.save(os.path.join(nopatch_image_dir, f"{save_name}.png"))
+                        with open(os.path.join(nopatch_label_dir, f"{save_name}.txt"), "w") as f:
+                            pass 
 
-    #shutil.rmtree(working_dir)
-    del image
-    #os.makedirs(working_dir, exist_ok=True)
+                patch_count += 1
+        print(f"Finished {image_name}: Generated {patch_count} patches.")
 
-print(f"Total patches created: {patch_id}")
+print("\n--- ALL DONE ---")
