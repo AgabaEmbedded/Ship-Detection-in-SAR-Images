@@ -158,7 +158,7 @@ for csv_path in [p for p in os.listdir(Data_dir) if p.endswith(".csv")]:
                         patch_image.save(f"{nopatch_image_dir}/patch_{image_name}_{patch_id}.png")
                         with open(f"{nopatch_label_dir}/patch_{image_name}_{patch_id}.txt", "w") as file:
                             pass  # Empty label file for no-object patches
-                print(f"patch {patch_id} of image {image_name}")
+                #print(f"patch {patch_id} of image {image_name}")
                 patch_id += 1
                 #if len(os.listdir(r"/content/Data/Image/train")) == 50:
 
