@@ -35,6 +35,33 @@ os.makedirs(nopatch_label_dir, exist_ok=True)
 # --- PROCESSING ---
 csv_files = [p for p in os.listdir(Data_dir) if p.endswith(".csv")]
 
+GLOBAL_WATER_SHP = r".\water-polygons-split-4326\water_polygons.shp"
+
+def get_local_mask(image_path, shp_path, b):
+    
+    bbox = (b.left, b.bottom, b.right, b.top)
+    
+    # 1. Load ONLY the polygons that intersect this image's bbox
+    # This is incredibly fast compared to downloading
+    water_gdf = gpd.read_file(shp_path, bbox=bbox)
+    
+    if water_gdf.empty:
+        return None
+    
+    # 2. Rasterize to create the Land Mask (Land=1, Water=0)
+    # We start with 1s (Land) and burn 0s (Water)
+    land_mask = np.ones((src.height, src.width), dtype='uint8')
+    
+    # Ensure CRS matches (Image is 4326, SHP should be 4326)
+    if water_gdf.crs != src.crs:
+        water_gdf = water_gdf.to_crs(src.crs)
+        
+    shapes = [(geom, 0) for geom in water_gdf.geometry if geom.is_valid]
+    features.rasterize(shapes, out_shape=(src.height, src.width), 
+                        transform=src.transform, out=land_mask)
+    
+    return land_mask
+
 for csv_name in csv_files:
     print(f"--- Processing: {csv_name} ---")
     image_name = os.path.splitext(csv_name)[0]
@@ -49,27 +76,16 @@ for csv_name in csv_files:
         transform = src.transform
         channels = src.count
         h, w = src.height, src.width
+        bounds = src.bounds
         
-        # --- 1. HANDLE LAND MASKING ---
-        land_mask = None
-        if os.path.exists(kmz_path):
-            print(f"Applying Land Mask from: {kmz_path}")
-            try:
-                # Read KMZ (Note: Some KMZ might need unzipping if fiona fails)
-                land_gdf = gpd.read_file(kmz_path, engine="pyogrio")
-                land_gdf = land_gdf.to_crs(src.crs) # Align CRS
-                
-                # Rasterize KMZ to match image dimensions (Land=1, Water=0)
-                land_mask = features.rasterize(
-                    [(geom, 1) for geom in land_gdf.geometry],
-                    out_shape=(h, w),
-                    transform=transform,
-                    fill=0,
-                    dtype='uint8'
-                )
-            except Exception as e:
-                print(f"Masking failed for {image_name}: {e}")
+        # --- 1. HANDLE LAND MASKING --- 
+        print(f"Fetching water bodies from OpenStreetMap for {image_name}...")
+        
+        land_mask = get_local_mask(image_path, GLOBAL_WATER_SHP, bounds)
 
+        print(f"Land mask obtained for {image_name}. Proceeding with patching...")
+
+    
         # Load annotations
         csv_file = pd.read_csv(os.path.join(Data_dir, csv_name))
         present_row = csv_file.iloc[0]
@@ -142,5 +158,5 @@ for csv_name in csv_files:
 
                 patch_count += 1
         print(f"Finished {image_name}: Generated {patch_count} patches.")
-
+    break
 print("\n--- ALL DONE ---")
