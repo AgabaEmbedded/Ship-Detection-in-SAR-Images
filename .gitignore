@@ -2,3 +2,9 @@
 *.png
 *.txt
 *.zip
+# Ignore the following directories
+Data/
+water-polygons-split-4326/
+Backup/
+Zip_Data/
+
