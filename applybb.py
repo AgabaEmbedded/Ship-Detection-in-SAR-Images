@@ -73,6 +73,6 @@ for img_file in selected_images:
     output_path = os.path.join(output_dir, img_file)
     
     draw_bounding_boxes(image_path, label_path, output_path)
-    print(img_file.replace(".png", ""))
+    #on print(img_file.replace(".png", ""))
     
 print(f"Processed {num_samples} images with bounding boxes.")
