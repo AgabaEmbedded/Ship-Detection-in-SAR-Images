@@ -1,0 +1,260 @@
+2026-03-17 08:44:47,293 - INFO - Cleared existing Data directory.
+2026-03-17 08:44:47,298 - INFO - --- Starting: sample1.csv ---
+2026-03-17 08:44:47,496 - INFO - Attempting to generate land mask for sample1...
+2026-03-17 08:45:01,362 - INFO - Land mask applied successfully.
+2026-03-17 08:45:09,740 - INFO - Cleared existing Data directory.
+2026-03-17 08:45:09,745 - INFO - --- Starting: sample1.csv ---
+2026-03-17 08:45:09,816 - INFO - Attempting to generate land mask for sample1...
+2026-03-17 08:45:14,296 - INFO - Land mask applied successfully.
+2026-03-17 08:46:28,915 - INFO - Finished sample1: Generated 1716 patches.
+2026-03-17 08:46:28,982 - INFO - --- Starting: Sample10.csv ---
+2026-03-17 08:46:29,029 - INFO - Attempting to generate land mask for Sample10...
+2026-03-17 08:47:16,499 - INFO - Land mask applied successfully.
+2026-03-17 08:49:10,902 - INFO - Finished Sample10: Generated 2706 patches.
+2026-03-17 08:49:10,968 - INFO - --- Starting: Sample11.csv ---
+2026-03-17 08:49:11,008 - INFO - Attempting to generate land mask for Sample11...
+2026-03-17 08:49:24,203 - INFO - Land mask applied successfully.
+2026-03-17 08:50:22,422 - INFO - Finished Sample11: Generated 1848 patches.
+2026-03-17 08:50:22,482 - INFO - --- Starting: Sample13.csv ---
+2026-03-17 08:50:22,523 - INFO - Attempting to generate land mask for Sample13...
+2026-03-17 08:50:34,948 - INFO - Land mask applied successfully.
+2026-03-17 08:52:44,748 - INFO - Finished Sample13: Generated 1848 patches.
+2026-03-17 08:52:44,831 - INFO - --- Starting: Sample14.csv ---
+2026-03-17 08:52:44,882 - INFO - Attempting to generate land mask for Sample14...
+2026-03-17 08:57:52,779 - INFO - Land mask applied successfully.
+2026-03-17 08:59:59,324 - INFO - Finished Sample14: Generated 3003 patches.
+2026-03-17 08:59:59,390 - INFO - --- Starting: Sample15.csv ---
+2026-03-17 08:59:59,422 - INFO - Attempting to generate land mask for Sample15...
+2026-03-17 09:00:11,208 - INFO - Land mask applied successfully.
+2026-03-17 09:01:13,988 - INFO - Finished Sample15: Generated 2632 patches.
+2026-03-17 09:01:14,055 - INFO - --- Starting: Sample16.csv ---
+2026-03-17 09:01:14,103 - INFO - Attempting to generate land mask for Sample16...
+2026-03-17 09:01:30,064 - INFO - Land mask applied successfully.
+2026-03-17 09:03:08,800 - INFO - Finished Sample16: Generated 1848 patches.
+2026-03-17 09:03:08,850 - INFO - --- Starting: Sample17.csv ---
+2026-03-17 09:03:08,944 - INFO - Attempting to generate land mask for Sample17...
+2026-03-17 09:04:51,411 - INFO - Land mask applied successfully.
+2026-03-17 09:06:13,065 - INFO - Finished Sample17: Generated 2937 patches.
+2026-03-17 09:06:13,192 - INFO - --- Starting: Sample2.csv ---
+2026-03-17 09:06:13,287 - INFO - Attempting to generate land mask for Sample2...
+2026-03-17 09:06:22,614 - INFO - Land mask applied successfully.
+2026-03-17 09:08:16,101 - INFO - Finished Sample2: Generated 1749 patches.
+2026-03-17 09:08:16,147 - INFO - --- Starting: Sample3.csv ---
+2026-03-17 09:08:16,188 - INFO - Attempting to generate land mask for Sample3...
+2026-03-17 09:08:23,947 - INFO - Land mask applied successfully.
+2026-03-17 09:08:49,425 - INFO - Finished Sample3: Generated 1200 patches.
+2026-03-17 09:08:49,485 - INFO - --- Starting: Sample4.csv ---
+2026-03-17 09:08:49,542 - INFO - Attempting to generate land mask for Sample4...
+2026-03-17 09:08:54,948 - INFO - Land mask applied successfully.
+2026-03-17 09:10:14,765 - INFO - Finished Sample4: Generated 1815 patches.
+2026-03-17 09:10:14,834 - INFO - --- Starting: Sample5.csv ---
+2026-03-17 09:10:14,894 - INFO - Attempting to generate land mask for Sample5...
+2026-03-17 09:12:20,087 - INFO - Land mask applied successfully.
+2026-03-17 09:13:37,521 - INFO - Finished Sample5: Generated 3036 patches.
+2026-03-17 09:13:37,562 - INFO - --- Starting: Sample6.csv ---
+2026-03-17 09:13:37,642 - INFO - Attempting to generate land mask for Sample6...
+2026-03-17 09:13:46,525 - INFO - Land mask applied successfully.
+2026-03-17 09:14:39,830 - INFO - Finished Sample6: Generated 2079 patches.
+2026-03-17 09:14:39,863 - INFO - --- Starting: Sample7.csv ---
+2026-03-17 09:14:39,914 - INFO - Attempting to generate land mask for Sample7...
+2026-03-17 09:14:48,072 - INFO - Land mask applied successfully.
+2026-03-17 09:15:23,131 - INFO - Finished Sample7: Generated 1716 patches.
+2026-03-17 09:15:23,183 - INFO - --- Starting: Sample8.csv ---
+2026-03-17 09:15:23,242 - INFO - Attempting to generate land mask for Sample8...
+2026-03-17 09:15:29,098 - INFO - Land mask applied successfully.
+2026-03-17 09:16:41,926 - INFO - Finished Sample8: Generated 1848 patches.
+2026-03-17 09:16:41,972 - INFO - --- Starting: Sample9.csv ---
+2026-03-17 09:16:42,023 - INFO - Attempting to generate land mask for Sample9...
+2026-03-17 09:16:47,976 - INFO - Land mask applied successfully.
+2026-03-17 09:18:04,825 - INFO - Finished Sample9: Generated 1650 patches.
+2026-03-17 09:18:04,861 - INFO - --- ALL DONE ---
+2026-03-18 13:45:39,168 - INFO - Existing Data directory cleared.
+2026-03-18 13:45:39,184 - INFO - --- Processing: sample1 ---
+2026-03-18 13:46:37,480 - INFO - Existing Data directory cleared.
+2026-03-18 13:46:37,485 - INFO - --- Processing: sample1 ---
+2026-03-18 13:49:29,210 - INFO - Existing Data directory cleared.
+2026-03-18 13:49:29,214 - INFO - --- Processing: sample1 ---
+2026-03-18 13:50:36,443 - INFO - Existing Data directory cleared.
+2026-03-18 13:50:36,490 - INFO - --- Processing: sample1 ---
+2026-03-18 13:50:36,633 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-18 13:53:19,507 - INFO - --- Processing: Sample10 ---
+2026-03-18 13:53:19,585 - INFO - Image Dimensions: 52713x21315, Channels: 1
+2026-03-18 13:56:21,285 - INFO - --- Processing: Sample11 ---
+2026-03-18 13:56:21,364 - INFO - Image Dimensions: 36083x21213, Channels: 1
+2026-03-18 13:57:42,790 - INFO - --- Processing: Sample13 ---
+2026-03-18 13:57:42,849 - INFO - Image Dimensions: 35856x21329, Channels: 1
+2026-03-18 14:00:50,293 - INFO - --- Processing: Sample14 ---
+2026-03-18 14:00:50,353 - INFO - Image Dimensions: 58607x21480, Channels: 1
+2026-03-18 14:03:45,436 - INFO - --- Processing: Sample15 ---
+2026-03-18 14:03:45,553 - INFO - Image Dimensions: 60485x17998, Channels: 1
+2026-03-18 14:05:00,423 - INFO - --- Processing: Sample16 ---
+2026-03-18 14:05:00,508 - INFO - Image Dimensions: 36332x21299, Channels: 1
+2026-03-18 14:07:53,192 - INFO - --- Processing: Sample17 ---
+2026-03-18 14:07:53,254 - INFO - Image Dimensions: 57405x21415, Channels: 1
+2026-03-18 14:10:25,112 - INFO - --- Processing: Sample2 ---
+2026-03-18 14:10:25,188 - INFO - Image Dimensions: 34295x21456, Channels: 1
+2026-03-18 14:16:14,654 - INFO - --- Processing: Sample3 ---
+2026-03-18 14:16:14,697 - INFO - Image Dimensions: 30945x16227, Channels: 1
+2026-03-18 14:17:21,167 - INFO - --- Processing: Sample4 ---
+2026-03-18 14:17:21,229 - INFO - Image Dimensions: 35307x21387, Channels: 1
+2026-03-18 14:20:52,447 - INFO - --- Processing: Sample5 ---
+2026-03-18 14:20:52,525 - INFO - Image Dimensions: 58972x21492, Channels: 1
+2026-03-18 14:24:21,721 - INFO - --- Processing: Sample6 ---
+2026-03-18 14:24:21,913 - INFO - Image Dimensions: 40540x21227, Channels: 1
+2026-03-18 14:38:56,061 - INFO - --- Processing: Sample7 ---
+2026-03-18 14:38:56,126 - INFO - Image Dimensions: 33826x21271, Channels: 1
+2026-03-18 14:39:56,520 - INFO - --- Processing: Sample8 ---
+2026-03-18 14:39:56,574 - INFO - Image Dimensions: 36083x21346, Channels: 1
+2026-03-18 14:42:18,282 - INFO - --- Processing: Sample9 ---
+2026-03-18 14:42:18,337 - INFO - Image Dimensions: 32305x21428, Channels: 1
+2026-03-18 14:44:57,266 - INFO - --- Processing Complete ---
+2026-03-18 14:44:57,266 - INFO - Total Ship Patches: 2427
+2026-03-18 14:44:57,267 - INFO - Total Background Patches: 368
+2026-03-18 21:11:54,640 - INFO - Existing Data directory cleared.
+2026-03-18 21:11:54,655 - INFO - --- Processing: sample1 ---
+2026-03-18 21:11:54,889 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-18 21:13:44,395 - INFO - --- Processing: Sample10 ---
+2026-03-18 21:13:44,595 - INFO - Image Dimensions: 52713x21315, Channels: 1
+2026-03-18 21:16:22,854 - INFO - --- Processing: Sample11 ---
+2026-03-18 21:16:23,036 - INFO - Image Dimensions: 36083x21213, Channels: 1
+2026-03-18 21:17:43,929 - INFO - --- Processing: Sample13 ---
+2026-03-18 21:17:44,125 - INFO - Image Dimensions: 35856x21329, Channels: 1
+2026-03-18 21:20:45,708 - INFO - --- Processing: Sample14 ---
+2026-03-18 21:20:45,931 - INFO - Image Dimensions: 58607x21480, Channels: 1
+2026-03-18 21:23:37,749 - INFO - --- Processing: Sample15 ---
+2026-03-18 21:23:37,821 - INFO - Image Dimensions: 60485x17998, Channels: 1
+2026-03-18 21:24:50,515 - INFO - --- Processing: Sample16 ---
+2026-03-18 21:24:50,573 - INFO - Image Dimensions: 36332x21299, Channels: 1
+2026-03-18 21:27:40,515 - INFO - --- Processing: Sample17 ---
+2026-03-18 21:27:40,717 - INFO - Image Dimensions: 57405x21415, Channels: 1
+2026-03-18 21:30:00,054 - INFO - --- Processing: Sample2 ---
+2026-03-18 21:30:00,097 - INFO - Image Dimensions: 34295x21456, Channels: 1
+2026-03-18 21:33:55,423 - INFO - --- Processing: Sample3 ---
+2026-03-18 21:33:55,443 - INFO - Image Dimensions: 30945x16227, Channels: 1
+2026-03-18 21:34:42,919 - INFO - --- Processing: Sample4 ---
+2026-03-18 21:34:42,953 - INFO - Image Dimensions: 35307x21387, Channels: 1
+2026-03-18 21:37:10,790 - INFO - --- Processing: Sample5 ---
+2026-03-18 21:37:10,834 - INFO - Image Dimensions: 58972x21492, Channels: 1
+2026-03-18 21:39:38,102 - INFO - --- Processing: Sample6 ---
+2026-03-18 21:39:38,146 - INFO - Image Dimensions: 40540x21227, Channels: 1
+2026-03-18 21:41:07,880 - INFO - --- Processing: Sample7 ---
+2026-03-18 21:41:07,919 - INFO - Image Dimensions: 33826x21271, Channels: 1
+2026-03-18 21:42:06,573 - INFO - --- Processing: Sample8 ---
+2026-03-18 21:42:06,607 - INFO - Image Dimensions: 36083x21346, Channels: 1
+2026-03-18 22:12:58,460 - INFO - --- Processing: Sample9 ---
+2026-03-18 22:12:58,507 - INFO - Image Dimensions: 32305x21428, Channels: 1
+2026-03-18 22:15:51,016 - INFO - --- Processing Complete ---
+2026-03-18 22:15:51,016 - INFO - Total Ship Patches: 2427
+2026-03-18 22:15:51,017 - INFO - Total Background Patches: 351
+2026-03-23 14:20:30,746 - INFO - Existing Data directory cleared.
+2026-03-23 14:20:30,767 - INFO - --- Processing: sample1 ---
+2026-03-23 14:20:31,179 - INFO - Image Dimensions: 33595x21352, Channels: 4
+2026-03-23 14:27:41,737 - INFO - --- Processing Complete ---
+2026-03-23 14:27:41,738 - INFO - Total Ship Patches: 117
+2026-03-23 14:27:41,738 - INFO - Total Background Patches: 23
+2026-03-23 15:05:21,350 - INFO - Existing Data directory cleared.
+2026-03-23 15:05:21,354 - INFO - --- Processing: Sample10 ---
+2026-03-23 15:05:21,665 - INFO - Image Dimensions: 52713x21315, Channels: 1
+2026-03-23 15:09:12,740 - INFO - --- Processing: sample1 ---
+2026-03-23 15:09:12,826 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-23 15:09:58,320 - INFO - --- Processing: sample1 ---
+2026-03-23 15:09:58,390 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-23 15:12:47,165 - INFO - --- Processing Complete ---
+2026-03-23 15:12:47,166 - INFO - Total Ship Patches: 117
+2026-03-23 15:12:47,167 - INFO - Total Background Patches: 21
+2026-03-24 13:06:38,439 - INFO - Existing Data directory cleared.
+2026-03-24 13:06:38,443 - INFO - --- Processing: Sample8 ---
+2026-03-24 13:06:38,683 - INFO - Image Dimensions: 36083x21346, Channels: 1
+2026-03-24 13:14:38,754 - INFO - Existing Data directory cleared.
+2026-03-24 13:14:38,765 - INFO - --- Processing: Sample8 ---
+2026-03-24 13:14:39,022 - INFO - Image Dimensions: 36083x21346, Channels: 1
+2026-03-24 13:17:56,023 - INFO - Existing Data directory cleared.
+2026-03-24 13:17:56,028 - INFO - --- Processing: Sample8 ---
+2026-03-24 13:17:56,130 - INFO - Image Dimensions: 36083x21346, Channels: 1
+2026-03-24 13:19:53,863 - INFO - Existing Data directory cleared.
+2026-03-24 13:19:53,867 - INFO - --- Processing: Sample8 ---
+2026-03-24 13:19:53,916 - INFO - Image Dimensions: 36083x21346, Channels: 1
+2026-03-25 09:26:41,727 - INFO - Existing Data directory cleared.
+2026-03-25 09:26:41,736 - WARNING - Skipping sample1: TIFF not found.
+2026-03-25 09:26:41,739 - INFO - --- Processing Complete ---
+2026-03-25 09:26:41,740 - INFO - Total Ship Patches: 0
+2026-03-25 09:26:41,740 - INFO - Total Background Patches: 0
+2026-03-25 09:27:14,731 - INFO - Existing Data directory cleared.
+2026-03-25 09:27:14,738 - INFO - --- Processing: sample1 ---
+2026-03-25 09:27:14,966 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-25 09:30:07,768 - INFO - Existing Data directory cleared.
+2026-03-25 09:30:07,772 - INFO - --- Processing: sample1 ---
+2026-03-25 09:30:07,958 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-25 09:32:36,895 - INFO - Existing Data directory cleared.
+2026-03-25 09:32:36,899 - INFO - --- Processing: sample1 ---
+2026-03-25 09:32:36,943 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-25 09:34:50,309 - INFO - Existing Data directory cleared.
+2026-03-25 09:34:50,321 - INFO - --- Processing: sample1 ---
+2026-03-25 09:34:50,405 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-25 09:37:26,970 - INFO - Existing Data directory cleared.
+2026-03-25 09:37:26,974 - INFO - --- Processing: sample1 ---
+2026-03-25 09:37:27,025 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-25 09:38:32,240 - INFO - Existing Data directory cleared.
+2026-03-25 09:38:32,244 - INFO - --- Processing: sample1 ---
+2026-03-25 09:38:32,303 - INFO - Image Dimensions: 33595x21352, Channels: 1
+2026-03-25 09:41:46,891 - INFO - Existing Data directory cleared.
+2026-03-25 09:41:46,895 - INFO - --- Processing: sample1 ---
+2026-03-25 09:41:46,974 - INFO - Image Dimensions: 33595x21352, Channels: 4
+2026-03-25 09:42:08,589 - INFO - Existing Data directory cleared.
+2026-03-25 09:42:08,593 - INFO - --- Processing: sample1 ---
+2026-03-25 09:42:08,634 - INFO - Image Dimensions: 33595x21352, Channels: 4
+2026-03-25 09:46:31,756 - INFO - --- Processing Complete ---
+2026-03-25 09:46:31,757 - INFO - Total Ship Patches: 117
+2026-03-25 09:46:31,757 - INFO - Total Background Patches: 24
+2026-03-25 09:57:46,642 - INFO - Existing Data directory cleared.
+2026-03-25 09:57:46,648 - INFO - --- Processing: sample1 ---
+2026-03-25 09:57:46,719 - INFO - Image Dimensions: 33595x21352, Channels: 4
+2026-03-25 10:03:06,830 - INFO - --- Processing Complete ---
+2026-03-25 10:03:06,831 - INFO - Total Ship Patches: 117
+2026-03-25 10:03:06,831 - INFO - Total Background Patches: 35
+2026-03-25 10:27:11,489 - INFO - Existing Data directory cleared.
+2026-03-25 10:27:11,493 - INFO - --- Processing: sample1 ---
+2026-03-25 10:27:11,554 - INFO - Image Dimensions: 33595x21352, Channels: 4
+2026-03-25 10:30:40,538 - INFO - --- Processing: Sample10 ---
+2026-03-25 10:30:40,562 - INFO - Image Dimensions: 52713x21315, Channels: 4
+2026-03-25 10:35:22,980 - INFO - --- Processing: Sample11 ---
+2026-03-25 10:35:23,237 - INFO - Image Dimensions: 36083x21213, Channels: 4
+2026-03-25 10:37:58,972 - INFO - --- Processing: Sample12 ---
+2026-03-25 10:37:59,002 - INFO - Image Dimensions: 28437x22219, Channels: 4
+2026-03-25 10:39:59,833 - INFO - --- Processing: Sample13 ---
+2026-03-25 10:39:59,873 - INFO - Image Dimensions: 35856x21329, Channels: 4
+2026-03-25 10:44:29,236 - INFO - --- Processing: Sample14 ---
+2026-03-25 10:44:29,504 - INFO - Image Dimensions: 58607x21480, Channels: 4
+2026-03-25 10:49:38,367 - INFO - --- Processing: Sample15 ---
+2026-03-25 10:49:38,418 - INFO - Image Dimensions: 60485x17998, Channels: 4
+2026-03-25 11:00:57,268 - INFO - --- Processing: Sample16 ---
+2026-03-25 11:00:57,327 - INFO - Image Dimensions: 36332x21299, Channels: 4
+2026-03-25 11:05:26,099 - INFO - --- Processing: Sample17 ---
+2026-03-25 11:05:26,375 - INFO - Image Dimensions: 57405x21415, Channels: 4
+2026-03-25 11:09:54,394 - INFO - --- Processing: Sample19 ---
+2026-03-25 11:09:54,662 - INFO - Image Dimensions: 28762x21900, Channels: 4
+2026-03-25 11:11:35,749 - INFO - --- Processing: Sample2 ---
+2026-03-25 11:11:35,768 - INFO - Image Dimensions: 34295x21456, Channels: 4
+2026-03-25 11:17:13,010 - INFO - --- Processing: Sample20 ---
+2026-03-25 11:17:13,180 - INFO - Image Dimensions: 31917x27168, Channels: 4
+2026-03-25 11:23:32,305 - INFO - --- Processing: Sample21 ---
+2026-03-25 11:23:32,353 - INFO - Image Dimensions: 37599x21160, Channels: 4
+2026-03-25 11:26:28,802 - INFO - --- Processing: Sample22 ---
+2026-03-25 11:26:28,836 - INFO - Image Dimensions: 36216x21294, Channels: 4
+2026-03-25 11:31:35,004 - INFO - --- Processing: Sample3 ---
+2026-03-25 11:31:35,023 - INFO - Image Dimensions: 30945x16227, Channels: 4
+2026-03-25 11:33:18,216 - INFO - --- Processing: Sample4 ---
+2026-03-25 11:33:18,239 - INFO - Image Dimensions: 35307x21387, Channels: 4
+2026-03-25 11:37:18,075 - INFO - --- Processing: Sample5 ---
+2026-03-25 11:37:18,099 - INFO - Image Dimensions: 58972x21492, Channels: 4
+2026-03-25 11:42:00,022 - INFO - --- Processing: Sample6 ---
+2026-03-25 11:42:00,250 - INFO - Image Dimensions: 40540x21227, Channels: 4
+2026-03-25 11:45:09,169 - INFO - --- Processing: Sample7 ---
+2026-03-25 11:45:09,190 - INFO - Image Dimensions: 33826x21271, Channels: 4
+2026-03-25 11:47:27,359 - INFO - --- Processing: Sample8 ---
+2026-03-25 11:47:27,379 - INFO - Image Dimensions: 36083x21346, Channels: 4
+2026-03-25 11:51:47,292 - INFO - --- Processing: Sample9 ---
+2026-03-25 11:51:47,324 - INFO - Image Dimensions: 32305x21428, Channels: 4
+2026-03-25 11:55:51,855 - INFO - --- Processing Complete ---
+2026-03-25 11:55:51,855 - INFO - Total Ship Patches: 3015
+2026-03-25 11:55:51,856 - INFO - Total Background Patches: 946
