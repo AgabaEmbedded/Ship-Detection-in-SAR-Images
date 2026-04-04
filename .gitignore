@@ -1,12 +1,26 @@
-.tif
+# Data and heavy files
+*.tif
 *.png
-*.txt
 *.zip
-# Ignore the following directories
+*.txt
+
+# Specific Data Directories
 Data/
 water-polygons-split-4326/
 Backup/
 Zip_Data/
 Input_Data/
 With_boxes/
-a.ipynb/
+cache/
+
+# Jupyter Notebooks and Checkpoints
+.ipynb_checkpoints/
+a.ipynb
+
+# Python/Environment extras
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
