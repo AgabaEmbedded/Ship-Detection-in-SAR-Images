@@ -1,25 +1,3 @@
-def load_model():
-
-    try:
-        return model
-    except:
-        try:
-            model = YOLO("model.pt")
-            return model
-        except:
-            try:
-                model_link = "https://github.com/AgabaEmbedded/Ship-Detection-in-SAR-Images/releases/download/v2.0/best-12.pt"
-                #"https://github.com/AgabaEmbedded/High-Signal-Road-Detection/releases/download/v2.0/best-48hrs-77.6-mAP50.pt"
-
-                !wget -O model.pt {model_link}
-                model = YOLO("model.pt")
-                return model
-            except Exception as e:
-                print(f"Error!! fail to load model: {e}")
-                return
-
-
-
 def on_button_click(b):
     with output:
         output.clear_output()
