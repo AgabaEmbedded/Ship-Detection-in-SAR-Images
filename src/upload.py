@@ -1,5 +1,4 @@
 import roboflow
-print("hello world")
 rf = roboflow.Roboflow(api_key="9VCfGRMmzvi61B4c9qu5")
 
 # get a workspace
