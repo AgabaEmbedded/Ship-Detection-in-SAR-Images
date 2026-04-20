@@ -6,17 +6,13 @@
 
 # Specific Data Directories
 Data/
-water-polygons-split-4326/
-Backup/
 Zip_Data/
 Input_Data/
 With_boxes/
-cache/
 
 
 # Jupyter Notebooks and Checkpoints
 .ipynb_checkpoints/
-a.ipynb
 
 # Python/Environment extras
 __pycache__/

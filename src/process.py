@@ -22,19 +22,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # --- CONFIGURATION ---
-Data_dir = r"Input_Data/"
-train_image_dir = r"Data/train/images"
-train_label_dir = r"Data/train/labels"
-nopatch_image_dir = r"Data/train/images" 
-nopatch_label_dir = r"Data/train/labels"
+Data_dir = r"Additional data/second test/input data"
+train_image_dir = r"Additional data/second test/Data/train/images"
+train_label_dir = r"Additional data/second test/Data/train/labels"
+nopatch_image_dir = r"Additional data/second test/Data/train/images" 
+nopatch_label_dir = r"Additional data/second test/Data/train/labels"
 
 patch_size = 640
 stride = 420
 no_obj_keep_rate = 0.01
 
 # Reset dataset folders
-if os.path.exists("Data"):
-    shutil.rmtree("Data")
+if os.path.exists("Additional data/second test/Data"):
+    shutil.rmtree("Additional data/second test/Data")
     logger.info("Existing Data directory cleared.")
 
 os.makedirs(train_image_dir, exist_ok=True)

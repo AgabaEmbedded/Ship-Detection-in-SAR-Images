@@ -5,22 +5,21 @@ import shutil
 import numpy as np
 from PIL import Image
 
-# Define paths
-train_image_dir = r"Data/train/images"
-train_label_dir = r"Data/train/labels"
-output_dir = r"with_boxes"
+train_image_dir = r"Additional data/Data/train/images"
+train_label_dir = r"Additional data/Data/train/labels"
+output_dir = r"Additional data/Data/with_bbox"
 
 os.makedirs(output_dir, exist_ok=True)
 shutil.rmtree(output_dir)
 os.makedirs(output_dir, exist_ok=True)
 
 # Get list of image files
-image_files = [f for f in os.listdir(train_image_dir) if f.endswith(".png")]
+image_files = [f for f in os.listdir(train_image_dir) if f.endswith(".png") or f.endswith(".jpg") or f.endswith(".jpeg")]
 
 # Randomly select a few images
-num_samples = min(714, len(image_files))  # Select up to 5 images
+num_samples = min(1200, len(image_files))  # Select up to 5 images
 selected_images = random.sample(image_files, num_samples)
-print(len(selected_images))
+print(f"{len(selected_images)} images found")
 # Function to draw bounding boxes
 def draw_bounding_boxes(image_path, label_path, output_path):
     image = cv2.imread(image_path)
@@ -65,7 +64,7 @@ for img_file in selected_images:
     image_path = os.path.join(train_image_dir, img_file)
     
     
-    label_file = img_file.replace(".png", ".txt")
+    label_file = img_file.replace(".png", ".txt").replace(".jpg", ".txt").replace(".jpeg", ".txt")
     #label_file = label_file.replace("image", "label")
     
     label_path = os.path.join(train_label_dir, label_file)
